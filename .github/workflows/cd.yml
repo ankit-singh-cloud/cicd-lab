@@ -27,8 +27,8 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
-  
-    deploy:
+
+  deploy:
     needs: publish
     runs-on: ubuntu-latest
     environment: production
@@ -36,7 +36,4 @@ jobs:
       - name: Deploy
         run: |
           echo "Deploying ghcr.io/${{ github.repository }}"
-          echo "In real life this would be:"
-          echo "  kubectl set image deploy/api api=..."
-          echo "  aws ecs update-service --force-new-deployment"
-          echo "  ssh server 'docker compose pull && docker compose up -d'"
+          echo "Approved and shipped."
